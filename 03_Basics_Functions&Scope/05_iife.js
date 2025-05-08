@@ -30,5 +30,5 @@ like from variables and functions of global scope  */
 
 
 
-(()=>console.log("Hello Ji"))();
+(()=>console.log("Hello World, this is an IIFE tutorial in javascript"))();
 
