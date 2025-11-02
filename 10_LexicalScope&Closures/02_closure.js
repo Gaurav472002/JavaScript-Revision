@@ -38,4 +38,32 @@ it increments the same counter — because of the closure.
 an inner function “closing over” variables from its parent scope.
 */
 
+///** REAL LIFE EXAMPLE FOR CLOSURES ***///
+function bankAccount(initialBalance) {
+  let balance = initialBalance; // private variable
+
+  return {
+    deposit(amount) {
+      balance += amount;
+      console.log(`Deposited ₹${amount}. Current Balance: ₹${balance}`);
+    },
+    withdraw(amount) {
+      if (amount > balance) {
+        console.log("Insufficient funds!");
+      } else {
+        balance -= amount;
+        console.log(`Withdrew ₹${amount}. Remaining Balance: ₹${balance}`);
+      }
+    },
+    getBalance() {
+      console.log(`Balance: ₹${balance}`);
+    }
+  };
+}
+
+const myAccount = bankAccount(1000);
+myAccount.deposit(500);   // ₹1500
+myAccount.withdraw(300);  // ₹1200
+myAccount.getBalance();   // ₹1200
+
 
